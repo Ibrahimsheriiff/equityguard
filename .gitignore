@@ -1,3 +1,8 @@
 .env
 __pycache__/
 *.pyc
+data/chroma_db/
+data/equityguard_rag_docs/
+evaluation_log.jsonl
+.DS_Store
+**/.DS_Store
