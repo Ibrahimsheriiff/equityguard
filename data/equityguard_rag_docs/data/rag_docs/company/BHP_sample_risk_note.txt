@@ -1,0 +1,28 @@
+Title: BHP Sample Company Risk Note
+Document Type: Sample Company Document
+Ticker: BHP.AX
+Project: EquityGuard
+Important: This is a synthetic sample document for RAG testing only. It is not an official company announcement and must not be used for real investment decisions.
+
+Company Context
+BHP is a global resources company with exposure to commodities such as iron ore, copper, coal, and other minerals.
+
+Sample Risk Factors
+The company may be sensitive to:
+- commodity price movements
+- China demand
+- global economic growth
+- production disruptions
+- currency movements
+- environmental regulation
+- capital expenditure
+- operational safety
+- geopolitical risk
+
+Possible Market Signals
+If iron ore prices fall, BHP may face pressure because commodity revenue expectations can decline.
+If production guidance changes, investors may reassess short-term earnings expectations.
+If global growth expectations weaken, resource stocks may experience higher volatility.
+
+How EquityGuard Should Use This Document
+This document should be used to provide background context when analysing BHP.AX. It should be combined with price data, technical indicators, news, and earnings risk.

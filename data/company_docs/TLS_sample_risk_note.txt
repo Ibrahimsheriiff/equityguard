@@ -1,0 +1,27 @@
+Title: Telstra Sample Company Risk Note
+Document Type: Sample Company Document
+Ticker: TLS.AX
+Project: EquityGuard
+Important: This is a synthetic sample document for RAG testing only. It is not an official company announcement and must not be used for real investment decisions.
+
+Company Context
+Telstra is a major Australian telecommunications company with mobile, fixed-line, enterprise, infrastructure, and technology service operations.
+
+Sample Risk Factors
+The company may be sensitive to:
+- mobile subscriber growth
+- network investment costs
+- competition in telecommunications
+- regulatory pressure
+- technology upgrades
+- enterprise customer demand
+- dividend expectations
+- infrastructure spending
+
+Possible Market Signals
+If mobile revenue growth slows, investors may focus on competitive pressure and pricing.
+If capital expenditure rises, investors may focus on margin pressure and cash flow.
+If dividend expectations change, the stock may react because income-focused investors may reassess the company.
+
+How EquityGuard Should Use This Document
+This document should be used to provide background context when analysing TLS.AX. It should not be treated as current official guidance.

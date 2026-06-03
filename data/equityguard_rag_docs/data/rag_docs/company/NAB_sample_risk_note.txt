@@ -1,0 +1,27 @@
+Title: NAB Sample Company Risk Note
+Document Type: Sample Company Document
+Ticker: NAB.AX
+Project: EquityGuard
+Important: This is a synthetic sample document for RAG testing only. It is not an official company announcement and must not be used for real investment decisions.
+
+Company Context
+National Australia Bank is a major Australian bank with exposure to business banking, retail banking, lending, deposits, and institutional clients.
+
+Sample Risk Factors
+The company may be sensitive to:
+- business credit conditions
+- interest rate movements
+- housing market trends
+- loan impairment charges
+- funding costs
+- competition for deposits
+- regulatory requirements
+- business confidence
+
+Possible Market Signals
+If business confidence weakens, investors may monitor lending growth and credit quality.
+If funding costs rise, investors may focus on net interest margin pressure.
+If arrears increase, investors may reassess bank risk.
+
+How EquityGuard Should Use This Document
+This document should be used as background context for NAB.AX and should not replace current official disclosures.

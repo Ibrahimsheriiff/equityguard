@@ -1,0 +1,24 @@
+Title: What Is Volatility?
+Document Type: Market Education
+Project: EquityGuard
+
+Volatility means how much the price of an asset moves over time. A highly volatile stock can rise or fall quickly, while a less volatile stock usually moves in a smaller range.
+
+Why Volatility Matters
+Volatility is important because it affects uncertainty. A stock that moves sharply may create both opportunity and risk, but the movement itself does not automatically mean the company is good or bad.
+
+Common Causes of Volatility
+- earnings announcements
+- interest rate changes
+- company news
+- sector-wide market movement
+- macroeconomic data
+- low liquidity
+- investor sentiment
+- unexpected events
+
+How EquityGuard Uses Volatility
+EquityGuard treats volatility as a risk signal, not a recommendation. High volatility can increase the risk score, especially when combined with negative news, unusual volume, weak momentum, or an upcoming earnings event.
+
+Important Note
+Volatility is not the same as risk, but it can be one part of risk. A stock may be volatile but still have strong fundamentals. Another stock may look stable but have hidden business or financial risks.

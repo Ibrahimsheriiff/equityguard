@@ -1,0 +1,51 @@
+Title: EquityGuard Risk Scoring Methodology
+Document Type: Methodology
+Version: 1.0
+Project: EquityGuard
+
+Purpose
+This document explains how EquityGuard converts market signals into an educational risk score from 1 to 10.
+
+Score Interpretation
+1-3: Lower observed risk
+The stock shows relatively stable movement, limited negative news, no obvious earnings event risk, and technical signals do not show strong stress.
+
+4-6: Medium observed risk
+The stock has mixed signals. There may be moderate volatility, uncertain news sentiment, unusual volume, technical weakness, or an upcoming event that needs attention.
+
+7-10: Higher observed risk
+The stock shows multiple risk signals, such as sharp price movement, unusual volume, negative news, earnings event risk, weak technical indicators, or concerning document-based risk factors.
+
+Inputs Considered
+EquityGuard may consider:
+- recent price movement
+- volume compared with average volume
+- RSI
+- MACD
+- Bollinger Band position
+- news sentiment
+- earnings calendar
+- retrieved company documents
+- market or sector context
+- uncertainty level
+
+Technical Signal Guidance
+RSI above 70 may suggest overbought conditions.
+RSI below 30 may suggest oversold conditions.
+A bearish MACD signal may indicate weakening momentum.
+Price near or outside the Bollinger Bands may indicate elevated volatility.
+Unusual volume may indicate market attention, news reaction, or institutional activity.
+
+News Signal Guidance
+Negative news may increase the risk score.
+Neutral news may keep the score stable.
+Positive news may reduce some risk but should not remove all risk.
+No news after unusual price/volume movement should be treated as uncertainty, not safety.
+
+Earnings Risk
+Upcoming earnings can increase risk because price movement may become unpredictable before and after results.
+If earnings are within the next 7 days, the assistant should highlight event risk.
+If earnings have already passed, the assistant should check whether the market reaction is still visible in price movement or news.
+
+Important Limitation
+The score is not a prediction. It is an educational summary of observed risk signals at the time of analysis.

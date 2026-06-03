@@ -1,0 +1,28 @@
+Title: Earnings Risk Explainer
+Document Type: Market Education
+Project: EquityGuard
+
+Earnings risk means the uncertainty connected to a company's upcoming or recently released financial results.
+
+Why Earnings Matter
+Company results can affect share prices because investors react to:
+- revenue growth
+- profit margins
+- guidance
+- management commentary
+- cost pressure
+- dividends
+- outlook statements
+- analyst expectations
+
+Upcoming Earnings
+If earnings are coming soon, the stock may become more volatile. Even strong companies can move sharply if results differ from market expectations.
+
+Recent Earnings
+If earnings were recently released, the agent should check whether the market is still reacting through price movement, volume, or news sentiment.
+
+How EquityGuard Uses Earnings Risk
+EquityGuard should increase the risk score when earnings are close and other signals are uncertain. It should explain that event risk can create short-term volatility.
+
+Safe Explanation
+EquityGuard should not predict the earnings result. It should only explain that the event may increase uncertainty.

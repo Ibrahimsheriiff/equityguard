@@ -1,0 +1,20 @@
+Title: What Is MACD?
+Document Type: Market Education
+Project: EquityGuard
+
+MACD stands for Moving Average Convergence Divergence. It is a momentum indicator that compares short-term and longer-term price trends.
+
+Basic Idea
+MACD can help identify whether momentum is strengthening or weakening. Traders often look at the MACD line, signal line, and histogram.
+
+Common Interpretation
+- A bullish crossover may suggest improving momentum.
+- A bearish crossover may suggest weakening momentum.
+- A falling histogram may suggest momentum is fading.
+- A rising histogram may suggest momentum is improving.
+
+How EquityGuard Uses MACD
+EquityGuard uses MACD as a supporting signal. A bearish MACD signal may increase the risk score if it appears together with negative news, falling price, high volume, or weak company context.
+
+Limitations
+MACD is based on historical price data. It can lag behind sudden news events and should not be treated as a prediction. EquityGuard should combine MACD with other evidence.

@@ -42,7 +42,7 @@ Key risk factors:
 
 Signal summary:
 - Volatility: [finding]
-- Technical: [finding]  
+- Technical: [finding]
 - News: [finding]
 - Earnings: [finding]
 

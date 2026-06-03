@@ -1,0 +1,28 @@
+Title: Market News Sentiment Explainer
+Document Type: Market Education
+Project: EquityGuard
+
+News sentiment means the overall tone of recent news about a company or stock. It can be positive, neutral, negative, or mixed.
+
+Why News Matters
+News can influence investor expectations. A stock may move because of:
+- earnings updates
+- regulatory issues
+- acquisitions
+- management changes
+- legal issues
+- dividend updates
+- analyst reports
+- sector-wide developments
+
+How EquityGuard Uses News
+EquityGuard checks news sentiment to explain whether recent headlines may be connected to price movement or volume changes.
+
+Negative News
+Negative news can increase the risk score, especially when combined with falling price, unusual volume, or weak technical signals.
+
+Positive News
+Positive news may reduce some risk, but it does not guarantee future performance.
+
+No News Found
+If no relevant news is found after unusual price movement or volume, EquityGuard should explain that the cause is unclear and treat the result as uncertain.

@@ -1,0 +1,23 @@
+Title: What Are Bollinger Bands?
+Document Type: Market Education
+Project: EquityGuard
+
+Bollinger Bands are a technical indicator that show a price range around a moving average. They are often used to understand volatility and whether price is moving near the edge of its recent range.
+
+Basic Structure
+A Bollinger Band usually has:
+- a middle moving average line
+- an upper band
+- a lower band
+
+Common Interpretation
+If price moves near the upper band, the stock may be extended compared with its recent range.
+If price moves near the lower band, the stock may be under pressure compared with its recent range.
+If the bands widen, volatility may be increasing.
+If the bands narrow, volatility may be decreasing.
+
+How EquityGuard Uses Bollinger Bands
+EquityGuard uses Bollinger Bands to detect elevated volatility and unusual price positioning. This can affect the risk score when combined with news, earnings risk, volume, or other technical indicators.
+
+Limitations
+Touching a Bollinger Band does not automatically mean the stock will reverse. It is a signal that needs context.

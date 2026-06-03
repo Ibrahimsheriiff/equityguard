@@ -1,7 +1,8 @@
 import streamlit as st
 import yfinance as yf
 import re
-from agent import run_agent
+from src.agent.react_loop import run_agent
+from src.safety.financial_guardrails import is_financial_advice_request, refusal_message
 
 st.set_page_config(page_title="EquityGuard", page_icon="🛡️", layout="wide", initial_sidebar_state="collapsed")
 
@@ -128,27 +129,30 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 if search:
     search_ticker = search.strip().upper()
-    data = fetch_price(search_ticker)
-    if data["price"] > 0:
-        chg_class = "chg-pos" if data["change"] >= 0 else "chg-neg"
-        chg_sign  = "+" if data["change"] >= 0 else ""
-        is_sel    = st.session_state.get("selected") == search_ticker
-        card_cls  = "stock-card selected" if is_sel else "stock-card"
-        col1, col2, col3 = st.columns([1,2,1])
-        with col2:
-            st.markdown(f"""
-            <div class="{card_cls}" style="margin-bottom:0.5rem">
-                <div class="stock-ticker">{search_ticker}</div>
-                <div class="stock-price">${data['price']}</div>
-                <div class="{chg_class}">{chg_sign}{data['change']}%</div>
-            </div>
-            """, unsafe_allow_html=True)
-            if st.button(f"Select {search_ticker}", key="search_select"):
-                st.session_state.selected = search_ticker
-                st.session_state.result = None
-                st.rerun()
+    if is_financial_advice_request(search):
+        st.warning(refusal_message())
     else:
-        st.warning(f"Could not find data for `{search_ticker}`. Check the ticker symbol.")
+        data = fetch_price(search_ticker)
+        if data["price"] > 0:
+            chg_class = "chg-pos" if data["change"] >= 0 else "chg-neg"
+            chg_sign  = "+" if data["change"] >= 0 else ""
+            is_sel    = st.session_state.get("selected") == search_ticker
+            card_cls  = "stock-card selected" if is_sel else "stock-card"
+            col1, col2, col3 = st.columns([1,2,1])
+            with col2:
+                st.markdown(f"""
+                <div class="{card_cls}" style="margin-bottom:0.5rem">
+                    <div class="stock-ticker">{search_ticker}</div>
+                    <div class="stock-price">${data['price']}</div>
+                    <div class="{chg_class}">{chg_sign}{data['change']}%</div>
+                </div>
+                """, unsafe_allow_html=True)
+                if st.button(f"Select {search_ticker}", key="search_select"):
+                    st.session_state.selected = search_ticker
+                    st.session_state.result = None
+                    st.rerun()
+        else:
+            st.warning(f"Could not find data for `{search_ticker}`. Check the ticker symbol.")
 
 # ── WATCHLIST GRID ─────────────────────────────────────────────────────────
 st.markdown('<div class="section-title">Watchlist — ASX & US markets</div>', unsafe_allow_html=True)
@@ -191,9 +195,14 @@ if st.session_state.get("selected"):
         </div>
         """, unsafe_allow_html=True)
         if st.button(f"🔍  Run Agent — Assess {ticker}", type="primary"):
+            query = f"Assess the current risk level of {ticker}"
+            if is_financial_advice_request(query) or is_financial_advice_request(ticker):
+                st.warning(refusal_message())
+                st.stop()
             with st.spinner(f"Agent investigating {ticker}..."):
-                result = run_agent(f"Assess the current risk level of {ticker}", verbose=False)
+                result, trace = run_agent(f"Assess the current risk level of {ticker}", ticker=ticker, verbose=False)
                 st.session_state.result = result
+                st.session_state.trace = trace
 else:
     st.markdown("""
     <div style="text-align:center; color:#2a3a52; font-size:0.9rem; margin:1.5rem 0;">
@@ -266,10 +275,92 @@ if st.session_state.get("result"):
     </div>
     """, unsafe_allow_html=True)
 
+    # ── AGENT TRACE ────────────────────────────────────────────────────────
+    trace = st.session_state.get("trace")
+    if trace and trace.steps:
+        st.markdown('<div class="section-title">Agent investigation trace</div>', unsafe_allow_html=True)
+        st.markdown("""
+        <div style="background:#0a0f1a;border:1px solid #1a2540;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1rem;">
+            <p style="color:#5a6a80;font-size:0.8rem;margin:0">
+                This shows every decision the agent made — what it was thinking, which tool it chose, and what it found.
+                The agent decided this path itself. It was not hardcoded.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        for step in trace.steps:
+            tool_icons = {
+                "get_price_data": "📈",
+                "get_technical_signals": "📊",
+                "get_news_sentiment": "📰",
+                "get_earnings_risk": "📅",
+                "retrieve_company_docs": "📄",
+                "search_company_knowledge": "🔍",
+            }
+            icon = tool_icons.get(step.tool_name, "🔧")
+            tool_display = step.tool_name.replace("_", " ").title()
+
+            st.markdown(f"""
+            <div style="display:flex;gap:1rem;align-items:flex-start;margin-bottom:0.75rem;background:#0f1626;border:1px solid #1a2540;border-radius:12px;padding:1rem 1.25rem;">
+                <div style="font-size:1.4rem;flex-shrink:0;margin-top:0.1rem">{icon}</div>
+                <div style="flex:1;">
+                    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;">
+                        <span style="background:#1a2540;color:#00d4aa;font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px;">STEP {step.step_number}</span>
+                        <span style="color:#e2e8f0;font-weight:600;font-size:0.9rem;">{tool_display}</span>
+                        <span style="color:#3a4a60;font-size:0.75rem;margin-left:auto;">{step.timestamp}</span>
+                    </div>
+                    <div style="color:#8892a4;font-size:0.85rem;margin-bottom:0.4rem;">
+                        <span style="color:#5a6a80;">Thought: </span>{step.thought}
+                    </div>
+                    <div style="color:#8892a4;font-size:0.85rem;margin-bottom:0.3rem;">
+                        <span style="color:#5a6a80;">Input: </span><code style="background:#1a2540;color:#a0aec0;padding:0.1rem 0.4rem;border-radius:4px;font-size:0.8rem;">{step.tool_input}</code>
+                    </div>
+                    <div style="color:#00d4aa;font-size:0.85rem;">
+                        <span style="color:#5a6a80;">Found: </span>{step.tool_output_summary}
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
     st.markdown('<div class="section-title">Agent reasoning</div>', unsafe_allow_html=True)
     st.markdown('<div class="reasoning-box">', unsafe_allow_html=True)
     st.markdown(result)
     st.markdown('</div>', unsafe_allow_html=True)
+
+# ── EVALUATION PANEL ───────────────────────────────────────────────────────
+st.markdown("---")
+st.markdown('<div class="section-title">Agent evaluation framework</div>', unsafe_allow_html=True)
+st.markdown("""
+<div style="background:#0a0f1a;border:1px solid #1a2540;border-radius:12px;padding:1rem 1.5rem;margin-bottom:1rem;">
+    <p style="color:#5a6a80;font-size:0.8rem;margin:0">
+        Runs 6 automated test cases — tool selection, financial advice refusal,
+        prompt injection resistance, and error handling.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("▶  Run Agent Evaluation", key="eval_btn"):
+        from src.evaluation.evaluator import run_evaluation
+        from src.agent.react_loop import run_agent as _run_agent
+
+        with st.spinner("Running evaluation suite..."):
+            results = run_evaluation(_run_agent)
+
+        for result in results:
+            if result["status"] == "PASS":
+                st.success(f"**{result['name']}** — {result['reason']}")
+            else:
+                st.error(f"**{result['name']}** — {result['reason']}")
+
+        passed = sum(1 for r in results if r["status"] == "PASS")
+        st.markdown(f"""
+        <div style="text-align:center;margin-top:1rem;padding:0.75rem;background:#0f1626;border:1px solid #1a2540;border-radius:12px;">
+            <span style="color:#00d4aa;font-size:1.2rem;font-weight:800;">{passed}/{len(results)}</span>
+            <span style="color:#5a6a80;font-size:0.85rem;"> test cases passed</span>
+        </div>
+        """, unsafe_allow_html=True)
 
 st.markdown("""
 <div style="text-align:center;margin-top:3rem;color:#1e2d45;font-size:0.78rem;">

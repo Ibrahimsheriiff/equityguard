@@ -1,0 +1,19 @@
+Title: What Is RSI?
+Document Type: Market Education
+Project: EquityGuard
+
+RSI stands for Relative Strength Index. It is a technical indicator that compares recent gains and losses to estimate whether a stock may be overbought or oversold.
+
+Typical Interpretation
+- RSI above 70 may suggest the stock is overbought.
+- RSI below 30 may suggest the stock is oversold.
+- RSI between 30 and 70 is often treated as a more neutral range.
+
+How EquityGuard Uses RSI
+EquityGuard uses RSI as one signal among many. A high RSI can increase risk if the stock has risen quickly and may be vulnerable to a pullback. A low RSI can also indicate risk because it may reflect heavy selling pressure.
+
+Limitations
+RSI should not be used alone. A stock can remain overbought or oversold for a long time. RSI is more useful when combined with price movement, volume, news, earnings risk, and company information.
+
+Safe Explanation
+EquityGuard should explain RSI as a risk signal, not as a buy or sell instruction.

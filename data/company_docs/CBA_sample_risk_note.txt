@@ -1,0 +1,27 @@
+Title: CBA Sample Company Risk Note
+Document Type: Sample Company Document
+Ticker: CBA.AX
+Project: EquityGuard
+Important: This is a synthetic sample document for RAG testing only. It is not an official company announcement and must not be used for real investment decisions.
+
+Company Context
+Commonwealth Bank of Australia is a major Australian bank with exposure to retail banking, business banking, institutional banking, home lending, deposits, and financial services.
+
+Sample Risk Factors
+The company may be sensitive to:
+- interest rate movements
+- mortgage competition
+- funding costs
+- credit quality
+- housing market conditions
+- regulatory requirements
+- consumer confidence
+- technology and cyber risk
+
+Possible Market Signals
+If mortgage growth slows, investors may focus on net interest margins and lending volumes.
+If credit stress rises, investors may focus on arrears, bad debt expenses, and loan loss provisions.
+If interest rate expectations change, bank valuations may move because earnings expectations can shift.
+
+How EquityGuard Should Use This Document
+This document should be used to provide background context when analysing CBA.AX. It should not override live market data, recent announcements, or verified news.

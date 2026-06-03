@@ -1,0 +1,25 @@
+Title: Unusual Volume Explainer
+Document Type: Market Education
+Project: EquityGuard
+
+Volume means the number of shares traded during a period. Unusual volume means trading activity is much higher or lower than normal.
+
+Why Volume Matters
+Volume can show how much attention a stock is receiving. A price move with high volume may be more meaningful than a price move with low volume.
+
+Possible Reasons for Unusual Volume
+- company announcement
+- earnings result
+- broker upgrade or downgrade
+- sector news
+- macroeconomic news
+- institutional trading
+- market rumours
+- index rebalancing
+
+How EquityGuard Uses Volume
+If volume is unusually high, EquityGuard should investigate further by checking news, earnings calendar, and company documents.
+If volume is unusually low, EquityGuard should treat the signal carefully because price movement may be less reliable.
+
+Important Limitation
+Unusual volume does not always mean something bad happened. It is a trigger for investigation, not a conclusion.

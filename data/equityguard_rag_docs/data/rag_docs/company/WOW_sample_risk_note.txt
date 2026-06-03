@@ -1,0 +1,28 @@
+Title: Woolworths Sample Company Risk Note
+Document Type: Sample Company Document
+Ticker: WOW.AX
+Project: EquityGuard
+Important: This is a synthetic sample document for RAG testing only. It is not an official company announcement and must not be used for real investment decisions.
+
+Company Context
+Woolworths is a major Australian retail company with exposure to supermarkets, supply chains, consumer spending, and food retail competition.
+
+Sample Risk Factors
+The company may be sensitive to:
+- inflation
+- consumer spending pressure
+- supermarket competition
+- wage costs
+- supply chain disruption
+- margin pressure
+- regulation
+- customer behaviour
+- online grocery growth
+
+Possible Market Signals
+If inflation remains high, investors may focus on whether costs can be passed to customers.
+If consumer spending weakens, investors may focus on sales growth and margins.
+If competition increases, investors may focus on price investment and profitability.
+
+How EquityGuard Should Use This Document
+This document should be used to provide background context when analysing WOW.AX. It should be combined with live market data and recent verified news.
